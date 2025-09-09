@@ -60,5 +60,7 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
-    // 确保已添加Navigation Compose依赖
+    // 状态栏控制依赖
+    implementation("com.google.accompanist:accompanist-systemuicontroller:0.32.0")
+    implementation("androidx.navigation:navigation-compose:2.9.3")
 }
