@@ -63,4 +63,6 @@ dependencies {
     // 状态栏控制依赖
     implementation("com.google.accompanist:accompanist-systemuicontroller:0.32.0")
     implementation("androidx.navigation:navigation-compose:2.9.3")
+    //图标扩展
+    implementation("androidx.compose.material:material-icons-extended:1.1.1")
 }

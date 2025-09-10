@@ -37,6 +37,7 @@ fun TopAppbar(statusBarHigh: Float, content: @Composable () -> Unit) {
             )
             .height((50+statusBarHigh).dp)
             .fillMaxWidth().padding(top = statusBarHigh.dp),
+            /*.then(), 可以合并其他modify*/
         horizontalArrangement = Arrangement.Center,
         verticalAlignment = Alignment.CenterVertically
     ) {
