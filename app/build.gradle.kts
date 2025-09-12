@@ -65,4 +65,6 @@ dependencies {
     implementation("androidx.navigation:navigation-compose:2.9.3")
     //图标扩展
     implementation("androidx.compose.material:material-icons-extended:1.1.1")
+    //图片加载
+    implementation("io.coil-kt:coil-compose:2.0.0-rc01")
 }

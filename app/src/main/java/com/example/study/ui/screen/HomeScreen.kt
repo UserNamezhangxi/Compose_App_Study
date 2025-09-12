@@ -1,11 +1,20 @@
 package com.example.study.ui.screen
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.pager.HorizontalPager
+import androidx.compose.foundation.pager.rememberPagerState
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Notifications
@@ -21,17 +30,22 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import coil.compose.AsyncImage
+import com.example.study.ui.components.SwiperCompoent
 import com.example.study.ui.components.TopAppbar
 import com.example.study.ui.viewmodel.MainViewModel
+import java.nio.file.WatchEvent
 
 // 首页内容
 @Composable
 fun HomeScreen(statusBarHigh: Float, vm: MainViewModel = viewModel()) {
+
     Column {
         TopAppbar(statusBarHigh) {
             Spacer(modifier = Modifier.width(8.dp))
@@ -138,6 +152,7 @@ fun HomeScreen(statusBarHigh: Float, vm: MainViewModel = viewModel()) {
                 )
             }
         }
+        SwiperCompoent(vm)
     }
 
 }
