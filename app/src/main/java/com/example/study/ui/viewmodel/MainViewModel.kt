@@ -44,9 +44,20 @@ class MainViewModel : ViewModel() {
     /**类型*/
     var typeIndex by mutableIntStateOf(0)
 
-    var swiperPager by mutableStateOf(listOf(
-        SwiperEntity("https://i0.hdslb.com/bfs/banner/c2129bedf66133fe2f69e5cb61171a60e001d1ed.png@800w_512h_!web-home-carousel-cover.avif"),
-        SwiperEntity("https://i0.hdslb.com/bfs/sycp/creative_img/202509/39f8d2c4d429322d2fb4d7a484e2970e.jpg@800w_512h_!web-home-carousel-cover.avif"),
-        SwiperEntity("https://i0.hdslb.com/bfs/banner/859dc7dccda5adbc69aebbc1147a27870f2e2d76.png@800w_512h_!web-home-carousel-cover.avif")))
+    var swiperPager by mutableStateOf(
+        listOf(
+            SwiperEntity("https://i0.hdslb.com/bfs/banner/c2129bedf66133fe2f69e5cb61171a60e001d1ed.png@800w_512h_!web-home-carousel-cover.avif"),
+            SwiperEntity("https://i0.hdslb.com/bfs/sycp/creative_img/202509/39f8d2c4d429322d2fb4d7a484e2970e.jpg@800w_512h_!web-home-carousel-cover.avif"),
+            SwiperEntity("https://i0.hdslb.com/bfs/banner/859dc7dccda5adbc69aebbc1147a27870f2e2d76.png@800w_512h_!web-home-carousel-cover.avif")
+        )
+    )
+
+    var notificationMsg by mutableStateOf(
+        listOf(
+            "党旗飘扬ABCDEFG党旗飘扬ABCDEFG党旗飘扬ABCDEFG党旗飘扬ABCDEFG",
+            "党旗飘扬HIJKLMNI",
+            "党旗飘扬QQQQQQQQQQQ党旗飘扬QQQQQQQQQQQ党旗飘扬QQ"
+        )
+    )
 
 }
