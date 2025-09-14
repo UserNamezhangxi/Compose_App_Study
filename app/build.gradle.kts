@@ -52,6 +52,7 @@ dependencies {
     implementation(libs.androidx.material3)
 //    implementation(libs.androidx.material)
     implementation(libs.androidx.navigation.compose.jvmstubs)
+    implementation(libs.androidx.constraintlayout)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -67,4 +68,6 @@ dependencies {
     implementation("androidx.compose.material:material-icons-extended:1.1.1")
     //图片加载
     implementation("io.coil-kt:coil-compose:2.0.0-rc01")
+    // 相对布局
+    implementation("androidx.constraintlayout:constraintlayout-compose:1.0.0")
 }

@@ -1,24 +1,11 @@
 package com.example.study.ui.screen
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.aspectRatio
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.layout.wrapContentHeight
-import androidx.compose.foundation.layout.wrapContentSize
-import androidx.compose.foundation.pager.HorizontalPager
-import androidx.compose.foundation.pager.VerticalPager
-import androidx.compose.foundation.pager.rememberPagerState
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Notifications
@@ -33,25 +20,24 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.focus.focusModifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import coil.compose.AsyncImage
+import com.example.study.ui.components.ArticalList
 import com.example.study.ui.components.SwiperCompoent
 import com.example.study.ui.components.TopAppbar
 import com.example.study.ui.components.VerticalMessage
+import com.example.study.ui.components.VideoMessage
 import com.example.study.ui.viewmodel.MainViewModel
 
 // 首页内容
 @Composable
-fun HomeScreen(statusBarHigh: Float, vm: MainViewModel = viewModel()) {
+fun HomeScreen(statusBarHigh: Float, bottomHigh: Float, vm: MainViewModel = viewModel()) {
 
-    Column {
+    Column(Modifier.padding(bottom = bottomHigh.dp)) {
         TopAppbar(statusBarHigh) {
             Spacer(modifier = Modifier.width(8.dp))
             Surface(
@@ -85,9 +71,7 @@ fun HomeScreen(statusBarHigh: Float, vm: MainViewModel = viewModel()) {
 
             /*学习进度*/
             Text(
-                text = "学习\n进度",
-                fontSize = 12.sp,
-                style = TextStyle(letterSpacing = 1.sp)
+                text = "学习\n进度", fontSize = 12.sp, style = TextStyle(letterSpacing = 1.sp)
             ) /*控制文字的间距*/
 
             Spacer(modifier = Modifier.width(8.dp))
@@ -119,27 +103,25 @@ fun HomeScreen(statusBarHigh: Float, vm: MainViewModel = viewModel()) {
                     text = {
                         Text(
                             text = category.title,
-                            modifier = Modifier
-                                .padding(4.dp, 8.dp),
+                            modifier = Modifier.padding(4.dp, 8.dp),
                             maxLines = 1
                         )
-                    }
-                )
+                    })
             }
         }
-
         TabRow(
             selectedTabIndex = vm.typeIndex,
             containerColor = Color.Transparent,
             contentColor = Color(0xff149ee7),
             indicator = {},
-            divider = {}
-        ) {
+            divider = {},
+            modifier = Modifier.padding(bottom = 16.dp)) {
             vm.types.forEachIndexed { index, data ->
                 LeadingIconTab(
                     selected = index == vm.typeIndex,
                     onClick = {
                         vm.typeIndex = index
+
                     },
                     selectedContentColor = Color(0xff149ee7),
                     unselectedContentColor = Color(0xff666666),
@@ -148,17 +130,21 @@ fun HomeScreen(statusBarHigh: Float, vm: MainViewModel = viewModel()) {
                     },
                     text = {
                         Text(
-                            text = data.name,
-                            modifier = Modifier
-                                .padding(4.dp, 8.dp),
-                            maxLines = 1
+                            text = data.name, modifier = Modifier.padding(4.dp, 4.dp), maxLines = 1
                         )
-                    }
-                )
+                    })
             }
         }
         SwiperCompoent(vm)
 
         VerticalMessage(vm)
+
+        if (vm.typeIndex == 0) {
+            ArticalList(vm)
+        } else {
+            VideoMessage(vm)
+        }
+
+
     }
 }

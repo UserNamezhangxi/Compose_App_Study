@@ -74,7 +74,7 @@ fun MainScreen() {
             startDestination = NavScreen.Home.route, // 默认展示哪个页面
         ) {
             composable(NavScreen.Home.route) {
-                HomeScreen(innerPadding.calculateTopPadding().value)
+                HomeScreen(innerPadding.calculateTopPadding().value,innerPadding.calculateBottomPadding().value)
             }
             composable(NavScreen.Messages.route) {
                 StudyScreen()

@@ -22,7 +22,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -50,7 +49,7 @@ fun VerticalMessage(vm: MainViewModel) {
     }
     Row(
         modifier = Modifier
-            .padding(8.dp)
+            .padding(start = 16.dp, top = 22.dp, end = 16.dp, bottom = 12.dp)
             .clip(RoundedCornerShape(8.dp))
             .background(Color(0x22149ee7))
             .height(45.dp)
