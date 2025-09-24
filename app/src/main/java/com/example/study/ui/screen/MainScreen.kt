@@ -71,13 +71,13 @@ fun MainScreen() {
     }) { innerPadding ->
         NavHost(
             navController = navController,
-            startDestination = NavScreen.Home.route, // 默认展示哪个页面
+            startDestination = NavScreen.Messages.route, // 默认展示哪个页面
         ) {
             composable(NavScreen.Home.route) {
                 HomeScreen(innerPadding.calculateTopPadding().value,innerPadding.calculateBottomPadding().value)
             }
             composable(NavScreen.Messages.route) {
-                StudyScreen()
+                StudyScreen(innerPadding.calculateTopPadding().value,innerPadding.calculateBottomPadding().value)
             }
             composable(NavScreen.Settings.route) {
                 MineScreen()
